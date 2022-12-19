@@ -52,6 +52,7 @@ private:
 public:
     void add_point(int x, int y, std::string name);
     void run_to_route(IVehicle* vehicle);
+
 };
 
 class Bicycle : public IVehicle {

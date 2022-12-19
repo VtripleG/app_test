@@ -63,6 +63,18 @@ void test::test_case1()
     QVERIFY(bus.drive(500));
     QCOMPARE(bus.get_mileage(), 500);
 
+    Route route;
+    route.add_point(0, 0, "1");
+    route.add_point(100, 100, "2");
+    Sedan test_sedan;
+    route.run_to_route(&test_sedan);
+    QCOMPARE(test_sedan.get_mileage(), 0);
+    test_sedan.refuel();
+    route.run_to_route(&test_sedan);
+    QCOMPARE(test_sedan.get_mileage(), 50);
+
+
+
 
 
 }
