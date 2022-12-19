@@ -75,7 +75,9 @@ void Route:: run_to_route(IVehicle* vehicle)
         buff = (buff_X*buff_X) + (buff_Y*buff_Y);
         buff = sqrt(buff);
         if (vehicle->drive(buff) == true)
-            vehicle->drive(buff);
+        {
+            break;
+        }
         else
         {
             vehicle->refuel();

@@ -14,6 +14,7 @@ public:
 
 private slots:
     void test_case1();
+    void test_case2();
 
 };
 
@@ -62,16 +63,17 @@ void test::test_case1()
     QCOMPARE(bus.get_fuel(),1000.0);
     QVERIFY(bus.drive(500));
     QCOMPARE(bus.get_mileage(), 500);
-
+}
+void test::test_case2(){
     Route route;
     route.add_point(0, 0, "1");
     route.add_point(100, 100, "2");
     Sedan test_sedan;
     route.run_to_route(&test_sedan);
-    QCOMPARE(test_sedan.get_mileage(), 0);
+    QCOMPARE(test_sedan.get_mileage(), 141);
     test_sedan.refuel();
     route.run_to_route(&test_sedan);
-    QCOMPARE(test_sedan.get_mileage(), 50);
+    QCOMPARE(test_sedan.get_mileage(), 282);
 
 
 
